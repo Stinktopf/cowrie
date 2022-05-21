@@ -12,3 +12,6 @@ service_identity==21.1.0
 tftpy==0.8.2
 treq==22.2.0
 twisted==22.4.0
+presidio_analyzer==2.2.28
+presidio_anonymizer==2.2.28
+
