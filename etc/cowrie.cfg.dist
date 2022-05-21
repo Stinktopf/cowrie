@@ -793,6 +793,17 @@ enabled = false
 logfile = ${honeypot:log_path}/audit.log
 format = text
 
+# Anonynmized text output
+# This writes audit log entries to a anonynmized text file
+#
+# Format can be:
+# text, cef
+#
+[output_anonynmizedlog]
+enabled = true
+logfile = ${honeypot:log_path}/anonynmized.log
+format = text
+
 
 # MySQL logging module
 # Database structure for this module is supplied in docs/sql/mysql.sql
@@ -1006,7 +1017,7 @@ debug = false
 # 1. Create a bot following https://core.telegram.org/bots#6-botfather to get token.
 # 2. Send message to your bot, then use https://api.telegram.org/bot{bot_token}/getUpdates to find chat_id.
 # N.b. bot will only send messages on cowrie.login.success, cowrie.command.input/.failed, and
-# cowrie.session.file_download, to prevent spam. 
+# cowrie.session.file_download, to prevent spam.
 [output_telegram]
 enabled = false
 bot_token = 123456789:AbCDEfGhiJkLmnOpQRstUVWxYZ
