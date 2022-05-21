@@ -56,8 +56,8 @@ class Output(cowrie.core.output.Output):
         return anonymized_text;
 
     def start(self):
-        self.format = CowrieConfig.get("output_anonynmizedlog", "format")
-        self.outfile = open(CowrieConfig.get("output_anonynmizedlog", "logfile"), "a")
+        self.format = CowrieConfig.get("output_anonymizedlog", "format")
+        self.outfile = open(CowrieConfig.get("output_anonymizedlog", "logfile"), "a")
 
     def stop(self):
         pass
