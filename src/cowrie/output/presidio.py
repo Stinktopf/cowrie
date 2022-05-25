@@ -51,7 +51,7 @@ class Output(cowrie.core.output.Output):
     presidio output
     """
     def presidio(self, text_to_anonymize):
-        analysis = analyzer.analyze(text=text_to_anonymize, entities=["PERSON", "DATE_TIME", "PHONE_NUMBER", "EMAIL_ADDRESS", "URL", "IP_ADDRESS", "CREDIT_CARD", "CRYPTO", "LOCATION"], language='en')
+        analysis = analyzer.analyze(text=text_to_anonymize, entities=["PERSON", "IP_ADDRESS", "DATE_TIME", "PHONE_NUMBER", "EMAIL_ADDRESS", "URL", "CREDIT_CARD", "CRYPTO", "LOCATION"], language='en')
         anonymized_text = anonymizer.anonymize(text=text_to_anonymize, analyzer_results=analysis, operators={"DEFAULT": OperatorConfig("replace", {"new_value": ""})})
         return anonymized_text;
 
