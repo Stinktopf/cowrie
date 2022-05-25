@@ -56,7 +56,6 @@ class Output(cowrie.core.output.Output):
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.emails, "<EMAIL_ADDRESS>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.links, "<URL>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.credit_cards, "<CREDIT_CARD>")
-        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.btc_addresses, "<CRYPTO>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.street_addresses, "<LOCATION>")
         return text_to_anonymize
 
