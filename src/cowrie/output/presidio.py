@@ -48,7 +48,7 @@ anonymizer = AnonymizerEngine()
 
 class Output(cowrie.core.output.Output):
     """
-    anonymizedlog output
+    presidio output
     """
     def presidio(self, text_to_anonymize):
         analysis = analyzer.analyze(text=text_to_anonymize, entities=["PHONE_NUMBER", "PERSON", "URL", "IP_ADDRESS", "NAME"], language='en')
@@ -56,8 +56,8 @@ class Output(cowrie.core.output.Output):
         return anonymized_text;
 
     def start(self):
-        self.format = CowrieConfig.get("output_anonymizedlog", "format")
-        self.outfile = open(CowrieConfig.get("output_anonymizedlog", "logfile"), "a")
+        self.format = CowrieConfig.get("output_presidio", "format")
+        self.outfile = open(CowrieConfig.get("output_presidio", "logfile"), "a")
 
     def stop(self):
         pass

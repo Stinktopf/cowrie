@@ -793,15 +793,15 @@ enabled = false
 logfile = ${honeypot:log_path}/audit.log
 format = text
 
-# Anonymizedlog text output
-# This writes audit log entries to a anonymized text file
+# Presidio text output
+# This writes audit log entries to a presidio anonymized text file
 #
 # Format can be:
 # text, cef
 #
-[output_anonymizedlog]
+[output_presidio]
 enabled = true
-logfile = ${honeypot:log_path}/anonymized.log
+logfile = ${honeypot:log_path}/presidio.log
 format = text
 
 
