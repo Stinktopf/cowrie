@@ -7,6 +7,7 @@ import random
 from typing import Optional
 
 from twisted.internet import reactor  # type: ignore
+from twisted.python import log
 
 from cowrie.shell.command import HoneyPotCommand
 
@@ -94,6 +95,9 @@ class Command_adduser(HoneyPotCommand):
         elif not len(line) and self.output[self.item][0] == O_Q:
             self.write("Must enter a value!\n")
         else:
+            if self.output[self.item][0] == O_Q:
+                logEntry = self.output[self.item][1] + line
+                log.msg(eventid="cowrie.command.input", input=logEntry, format="CMD: %(input)s")
             self.item += 1
         self.schedule_next()
         self.protocol.password_input = False
