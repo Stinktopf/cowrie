@@ -804,6 +804,16 @@ enabled = true
 logfile = ${honeypot:log_path}/presidio.log
 format = text
 
+# Regex text output
+# This writes audit log entries to a regex anonymized text file
+#
+# Format can be:
+# text, cef
+#
+[output_regex]
+enabled = true
+logfile = ${honeypot:log_path}/regex.log
+format = text
 
 # MySQL logging module
 # Database structure for this module is supplied in docs/sql/mysql.sql
