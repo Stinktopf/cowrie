@@ -48,15 +48,14 @@ class Output(cowrie.core.output.Output):
     """
     def regex(self, text_to_anonymize):
         parsed_text = CommonRegex(text_to_anonymize)
+        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.emails, "<EMAIL_ADDRESS>")
+        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.links, "<URL>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.ips, "<IP_ADDRESS>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.ipv6s, "<IP_ADDRESS>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.dates, "<DATE_TIME>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.times, "<DATE_TIME>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.phones, "<PHONE_NUMBER>")
-        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.emails, "<EMAIL_ADDRESS>")
-        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.links, "<URL>")
         text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.credit_cards, "<CREDIT_CARD>")
-        text_to_anonymize = self.sanitize(text_to_anonymize, parsed_text.street_addresses, "<LOCATION>")
         return text_to_anonymize
 
     def sanitize(self, text_to_anonymize, matches, replacement):
